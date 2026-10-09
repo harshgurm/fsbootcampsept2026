@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <style>
+    h1 {
+      color: red;
+      background-color: yellow;
+    }
+    div {
+      color: blue;
+      background-color: green;
+    }
+    span {
+      color: purple;
+      background-color: pink;
+    }
+  </style>
+  <script>
+    // var number = 10;
+    // var number2 = 10;
+    // var sum = number + number2;
+    // console.log(sum);
+    // sum = sum + 1;
+    // console.log('The sum is: ' + sum);
+    // sum += sum;// sum = sum + sum;
+    // sum -= sum;// sum = sum - sum;
+    // console.log('The sum after increment : ' + sum);
+
+    // var num = 5;
+    // // num += 10; // num = num + 5;
+    // // num -= 10; // num = num - 10;
+    // // num *= 10; // num = num * 10;
+    // // num /= 10; // num = num / 10;
+    // if(false || true){
+    //   console.log('Both needs to be true');
+    // } else {
+    //   console.log('one of them is false');
+    // }
+
+    // var arr = new Array(1, 2, 3, 4, 5);
+    // arr.push(6);
+    // var names = ["Harsh", "Suvid", "Noah"];
+    // console.log(arr);
+    // console.log(names);
+    // console.log(names[1]);
+
+    var persons = [
+      {
+        name: "Harsh",
+        age: 20,
+        city: "New York",
+      },
+      {
+        name: "Suvid",
+        age: 21,
+        city: "Los Angeles",
+      },
+    ];
+    console.log(persons);
+    console.log("persons[0].name: " + persons[0].name);
+    console.log("persons[1].name: " + persons[1].name);
+
+    persons.map((person, index) => {
+      console.log(index + ": map example: " + person.name);
+    });
+
+    const numbers = [1, 2, 3, 4, 5];
+    const multiply = numbers.map((number) => {
+      return number * 2;
+    });
+    console.log(multiply);
+
+    // var car_names = [
+    //   ["Civic", "Corolla"],
+    //   ["Accord", "Camry"],
+    //   ["Mustang", "Charger"],
+    // ];
+
+    // var cars = ['Civic', 'Corolla', 'Accord', 'Camry', 'Mustang', 'Charger'];
+    // console.log(cars[3]);
+
+    // for(var car in cars){
+    //   console.log('Car Index', cars[car]);
+    // }
+
+    // for(var i = 0; i <10; i++){
+    //   console.log('for loop example: ' + i);
+    // }
+
+    var i = 20;
+    do {
+      console.log('while loop example: ' + i);
+      i++;
+    }
+    while(i < 20)
+
+    // do a for loop to display a value from 0 to 15
+    for(var i = 0; i <= 15; i++){
+      console.log('for loop example: ' + i);
+    }
+    
+    for(var i = 1; i <= 16; i++){
+      i++;
+      console.log('for loop example: ' + i);
+    }
+    // do a for loop to display either even or odd numbers from 0 to 20
+     for(var i = 0; i <= 20; i++){
+      if(i % 2 === 0){
+        console.log('Even number: ' + i);
+      } else {
+        console.log('Odd number: ' + i);
+      }
+    }
+    // display values from 15 to 0 using a for loop
+    for(var i = 15; i >= 0;i--){
+      console.log('for loop example: ' + i);
+    }
+
+    var z = 15
+    while(z > 0){
+      console.log('while loop example: ' + z);
+      z--;
+    }
+
+    function addNumbers(num1, num2){
+      return num1 + num2;
+    }
+
+    console.log(addNumbers(1, 2));
+    console.log(addNumbers(3, 4));
+    console.log(addNumbers(5, 6));
+
+    //create a function to calculate 5 students percentage
+    //The function should accept student name and their total marks 
+    //It should return the percentage of the student 
+    // which is calculated by dividing the total marks by 500 and multiplying it by 100
+    function calculatePercentage(name, totalMarks){
+      let percentage = (totalMarks / 500) * 100;
+      return name + ' you got ' + percentage + '%';
+    }
+    
+    calculatePercentage('Alice', 300)
+    calculatePercentage('Bob', 450)
+    calculatePercentage('Charlie', 480)
+    calculatePercentage('David', 320)
+    calculatePercentage('Eve', 300)
+    calculatePercentage('Frank', 230)
+    calculatePercentage('Test', 100)
+
+    let studentsGrades = [
+      {name: 'Harsh', marks: [400, 300, 450, 480, 320]},
+      {name: 'Alice', marks: [300, 350, 400, 420, 380]},
+      {name: 'Bob', marks: [450, 480, 420, 460, 410]},
+      {name: 'Charlie', marks: [480, 490, 470, 485, 475]},
+      {name: 'David', marks: [320, 330, 310, 325, 315]},
+      {name: 'Eve', marks: [300, 320, 340, 360, 380]},
+      {name: 'Frank', marks: [230, 240, 250, 260, 270]},
+
+    ]
+
+    function hello(){
+      console.log('Hello World');
+    }
+
+    function userInfo( name, age, city){
+      console.log('User name: ' + name);
+      console.log('User age: ' + age);
+      console.log('User city: ' + city);
+    }
+
+    hello();
+
+    
+
+    () => {
+      console.log('This is an arrow function');
+    }
+
+
+
+  </script>
+  <body>
+    <h1 id="text">Welcome to My Website</h1>
+    This is my first website. This is my second line.
+    <div>
+      <div>This is div 1</div>
+      <div>This is div 2</div>
+      <div>This is div 3</div>
+      <p>This is a paragraph.</p>
+    </div>
+
+    <ol type="A">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ol>
+
+    <!-- if the image is at the same location as the html file then we can use the below code to display the image. -->
+    <!-- <img src="pic_trulli.jpg" alt="Not Found"> -->
+    <img src="./pic_trulli.jpg" alt="Not Found" />
+    <!-- if the image is at the parent location of the html file then we can use the below code to display the image. -->
+    <img src="../pic_trulli.jpg" alt="Not Found" />
+
+    <span>This is the text without div.More content</span>
+    <span>this is the text without div 2</span>
+
+    <a href="https://www.google.com"
+      ><img src="../pic_trulli.jpg" alt="Not Found" />
+    </a>
+
+    <!-- Harsh -->
+    <!-- Singh      
+        Gurm -->
+  </body>
+  <script>
+    document.getElementById('text').innerHTML = calculatePercentage('Harsh', 400);
+
+    </script>
+    // var text = document.getElementById('text');
+    // text.innerHTML = 'Welcome to My Website - Updated';
+    // text.style.color = 'blue';
+    // text.style.backgroundColor = 'yellow';
+    // text.style.fontSize = '30px';
+</html>
