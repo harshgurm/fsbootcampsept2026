@@ -1,8 +1,16 @@
 <html>
   <head>
     <title>My Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <link rel="stylesheet" href="../css/desktop.css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="../css/mobile.css" media="screen and (max-width: 768px)">
   <style>
+
+    img {
+      height: 50vh;
+      width: 50vw;
+    }
     h1 {
       color: red;
       background-color: yellow;
@@ -14,6 +22,12 @@
     span {
       color: purple;
       background-color: pink;
+    }
+    .text {
+      font-size: 30px;
+    }
+    .childtext {
+      font-size: 2em;
     }
   </style>
   <script>
@@ -175,10 +189,10 @@
 
   </script>
   <body>
-    <h1 id="text">Welcome to My Website</h1>
-    This is my first website. This is my second line.
-    <div>
-      <div>This is div 1</div>
+    <!-- <h1 class="text">Welcome to My Website</h1> -->
+    <!-- This is my first website. This is my second line. -->
+    <div class="text"> This is a div.
+      <div class="childtext">This is div 2</div>
       <div>This is div 2</div>
       <div>This is div 3</div>
       <p>This is a paragraph.</p>

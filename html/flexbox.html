@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Flexbox Example</title>
+        <style>
+            .flex-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .flex-item {
+                flex: 1 1 200px;
+                background-color: lightblue;
+                border: 1px solid #000;
+                padding: 20px;
+                text-align: center;
+            }
+            .display{
+                display:block;
+                height: 100px;
+                background-color: lightgreen;
+            }
+        </style>
+        <script>
+            function showImage() {
+                document.getElementsByTagName('img')[0].setAttribute('src', 'https://media.istockphoto.com/id/2148306092/photo/it-developer-with-stressful-overworked-in-creating-online-software-code-gusher.jpg?s=1024x1024&w=is&k=20&c=0ffXlwg57LdhGuk6qmDz-0QUt3TLOe-DoS0Pm28pL_Y=');
+            }
+
+            function hideImage() {
+                document.getElementsByTagName('img')[0].setAttribute('src', '');
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Flexbox</h1>
+        <p>THis is my paragraph 1.</p>
+        <p>THis is my paragraph 2.</p>
+        <div class="flex-container">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">4</div>
+            <div class="flex-item">5</div>
+            <div class="flex-item">6</div>
+            <div id="item7" class="flex-item">7</div>
+        </div>
+        <div class="flex-container">
+                <button onclick="showImage()">Show Image</button>
+                <button onclick="hideImage()">Hide Image</button>
+        </div>
+        <img src="https://media.istockphoto.com/id/2148306092/photo/it-developer-with-stressful-overworked-in-creating-online-software-code-gusher.jpg?s=1024x1024&w=is&k=20&c=0ffXlwg57LdhGuk6qmDz-0QUt3TLOe-DoS0Pm28pL_Y=" alt="Not Found" />
+        <div class="display">This is a display div.Let test floating</div>
+    </body>
+</html>

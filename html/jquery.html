@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>jQuery Example</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // 1. selecting element by id
+
+                $('#title').text('<h1>This is an updated subtitle using jQuery</h1>');
+                $('#subtitle').html('<h1>This is an updated subtitle using jQuery</h1>');
+                $('#title').css('color', 'blue');
+
+
+                // 2. selecting element by class
+                $('.content').css('font-size', '18px');
+                // $('.content').css('color', 'darkgray');
+                $('.content').css('background-color', 'black');
+                $('.content').addClass('text');
+
+
+                // 3. selecting element by tag name
+                $('h1').css('font-size', '40px');
+                $('h1').css('font-family', 'Arial, sans-serif');
+
+            });
+        </script>
+        <style>
+            .text {
+                color: red;
+                border: 5px solid #000;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 id="title">jQuery Example</h1>
+        <h3 id="subtitle">This is a subtitle</h3>
+        <p class="content">This is a paragraph that can be hidden or shown using jQuery.</p>
+        <p class="content">This is my second paragraph.</p>
+        <button id="hideButton">Hide Paragraph</button>
+        <button id="showButton">Show Paragraph</button>
+    </body>

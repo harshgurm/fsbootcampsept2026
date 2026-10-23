@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>My Page</title>
+    </head>
+    <script>
+        function validateForm(){
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            if(name === "" || password === ""){
+                alert("Name and Password must be filled out");
+                return false;
+            } else {
+                alert("Form submitted successfully!");
+            }
+        }
+        window.onload = function() {
+            document.getElementById("name").value = "John Doe";
+        };
+    </script>
+    <style>
+        .styling {
+            background-color: lightblue;
+            border: 5px solid #000;
+            padding: 20px;
+        }
+    </style>
+    <body>
+        <h1>Login Form</h1>
+        <form name="myForm" action="/submit" method="POST" onsubmit="return validateForm()">
+            <label>Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label>Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+
+        </form>
+    </body>
+</html>
