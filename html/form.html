@@ -2,6 +2,7 @@
     <head>
         <title>My Page</title>
     </head>
+    <script src="./Car.js"></script>
     <script>
         function validateForm(){
             var name = document.getElementById("name").value;
@@ -15,6 +16,19 @@
         }
         window.onload = function() {
             document.getElementById("name").value = "John Doe";
+            var persons = [{
+                name: "John",
+                age: 30,
+                city: "New York"
+            },
+            {
+                name: "Jane",
+                age: 25,
+                city: "Los Angeles"
+            }
+        ]
+            console.log(persons);
+
         };
     </script>
     <style>
