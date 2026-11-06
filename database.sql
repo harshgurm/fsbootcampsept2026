@@ -77,4 +77,27 @@ TRUNCATE fssept2026.customer_test;
 -- TO delete a table
 DROP TABLE fssept2026.customer_test;
 
-SELECT * from fssept2026.customer_test;
+DROP TABLE fssept2026.orders;
+
+CREATE TABLE `fssept2026`.`orders` (
+  `order_id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `order_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `quantity` int DEFAULT NULL,
+  customer_id int not null,
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+select * from `fssept2026`.`orders`;
+
+INSERT INTO `fssept2026`.`orders` (order_date, quantity, customer_id) VALUES 
+(NOW(), 5, 4);
+
+use fssept2026;
+select * from customers c
+INNER JOIN orders o
+ON o.customer_id = c.customer_id;
+
+select * from customers c
+LEFT JOIN orders o
+ON o.customer_id = c.customer_id
+WHERE o.customer_id IS NULL;
