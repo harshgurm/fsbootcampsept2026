@@ -32,8 +32,15 @@ INSERT INTO `fssept2026`.`customers` (`customer_name`, `age`) VALUES
 -- specific columns
 SELECT * FROM fssept2026.customers;
 
+-- To add a column after the table is created
+ALTER TABLE fssept2026.customers ADD COLUMN email VARCHAR(100) DEFAULT NULL;
+
+ALTER TABLE fssept2026.customers ADD COLUMN city VARCHAR(50) DEFAULT NULL;
+
+ALTER TABLE fssept2026.customers DROP COLUMN city;
+
 -- to limit the number of records to select from a database
-SELECT * FROM fssept2026.customers LIMIT 2;
+SELECT * FROM fssept2026.customers ORDER BY customer_id desc LIMIT 1 OFFSET 1;
 
 SELECT * FROM fssept2026.customers ORDER BY customer_id DESC LIMIT 2;
 
@@ -63,3 +70,11 @@ UPDATE fssept2026.customers SET age = 20, customer_name = 'George Brown' WHERE c
 
 -- DELETE a record
 DELETE FROM fssept2026.customers where customer_id = 3;
+
+-- TO delete the data from a table without deleting the table
+TRUNCATE fssept2026.customer_test;
+
+-- TO delete a table
+DROP TABLE fssept2026.customer_test;
+
+SELECT * from fssept2026.customer_test;
