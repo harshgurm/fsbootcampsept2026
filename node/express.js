@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const app = express();
 const jwt = require('jsonwebtoken');
+const connection = require('./connection');
 
 // app.use(customMiddleware);
 app.use(express.json());
@@ -13,42 +14,68 @@ function customMiddleware(req, res, next) {
     next();
 }
 
-let customers = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Smith' },
-    { id: 3, name: 'Alice Johnson' }
-];
-
 app.get('/customers', (req, res) => {
-    res.json(customers);
+
+    connection.query('SELECT * FROM fssept2026.customers', (err, results) => {
+        if (err) {
+            console.error('Error fetching customers:', err);
+        } 
+        res.json(results);
+    });
 });
 
-app.get('/customer/:id', customMiddleware , (request, response) => {
+app.get('/customers/:id', customMiddleware , (request, response) => {
     if(request.params.id > 0) {
+        
         let customerId = parseInt(request.params.id);
-        let customer = customers.find(c => c.id === customerId);
-        if (customer) {
-            response.json(customer);
-        } else {
-            response.status(404).send('Customer not found');
-        }
+        
+        connection.query('SELECT * FROM fssept2026.customers WHERE customer_id = ?', [customerId], (err, results) => {
+            if (err) {
+                console.error('Error fetching customer:', );
+                response.status(500).send(err);
+            }
+            if (results.length === 0) {
+                response.status(404).send('Customer not found');
+            }
+             else {
+                let customer = results[0];
+                response.json(customer);
+            }
+        });
     } else {
-        response.status(400).send('Invalid ID');
+        response.status(400).send('Invalid customer ID');
     }
 });
 
 app.post('/customers/', (req, res) => {
-    let password = req.body.password;
 
-    bcrypt.hash(password, 10, (err, hash) => {
+    // let customer_name = req.body.customer_name;
+    // let age = req.body.age;
+    // let email = req.body.email;
+    
+    // OR
+    let { customer_name, age, email } = req.body;
+
+    connection.query(`INSERT INTO fssept2026.customers (customer_name, age, email)
+                      VALUES (?, ?, ?)`, [customer_name, age, email], (err, results) => {
         if (err) {
-            res.status(500).send('Error hashing password');
+            res.status(500).json(err);
+            return;
         } else {
-            // Store the hashed password in the database or perform other operations
-            console.log('Hashed Password:', hash);
-            res.send(`Customer ${hash}`);
+            res.send(`Customer ${customer_name} added successfully`);
         }
     });
+    // let password = req.body.password;
+
+    // bcrypt.hash(password, 10, (err, hash) => {
+    //     if (err) {
+    //         res.status(500).send('Error hashing password');
+    //     } else {
+    //         // Store the hashed password in the database or perform other operations
+    //         console.log('Hashed Password:', hash);
+    //         res.send(`Customer ${hash}`);
+    //     }
+    // });
 
 });
 
