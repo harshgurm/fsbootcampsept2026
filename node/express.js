@@ -79,9 +79,55 @@ app.post('/customers/', (req, res) => {
 
 });
 
-// app.put();
+app.put('/customers/:id', (req, res) => {
+    let customerId = parseInt(req.params.id);
+    if (isNaN(customerId)) {
+        res.status(400).send('Invalid customer ID');
+        return;
+    }
 
-// app.delete()
+    let { customer_name, age, email } = req.body;   
+    
+    connection.query(`
+        UPDATE fssept2026.customers 
+        SET customer_name = ?, age = ?, email = ? 
+        WHERE customer_id = ?`,
+        [customer_name, age, email, customerId], (err, results) => {
+            
+            if (err) {
+                console.error('Error updating customer:', err);
+                res.status(500).send('Error updating customer', err);
+            } else {
+                if (results.affectedRows === 0) {
+                    res.status(404).send('Customer not found');
+                } else {
+                    res.send('Customer updated successfully');
+                }
+            }
+        });
+
+});
+
+app.delete('/customers/:id', (req, res) => {
+    let customerId = parseInt(req.params.id);
+    if (isNaN(customerId)) {
+        res.status(400).send('Invalid customer ID');
+        return;
+    }
+
+    connection.query('DELETE FROM fssept2026.customers WHERE customer_id = ?', [customerId], (err, results) => {
+        if (err) {
+            console.error('Error deleting customer:', err);
+            res.status(500).send('Error deleting customer');
+        } else {
+            if (results.affectedRows === 0) {
+                res.status(404).send('Customer not found');
+            } else {
+                res.send('Customer deleted successfully');
+            }
+        }
+    });
+});
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
